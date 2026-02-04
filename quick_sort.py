@@ -4,10 +4,10 @@ r.shuffle(list)
 print(list)
 def quick_sort(list,left,right):
     if left<right:
-        mid=portition(list,left,right)
+        mid=partition(list,left,right)
         quick_sort(list,left,mid-1)
         quick_sort(list,mid+1,right)
-def portition(list,left,right):
+def partition(list,left,right):
     mid=list[right]
     while left< right:
         tag=True
@@ -22,5 +22,21 @@ def portition(list,left,right):
                 break
             right-=1
     return left
-quick_sort(list,0,len(list)-1)
+def quick_sort_V2(list,left,right):
+    if left<right:
+        mid=partition_V2(list,left,right)
+        quick_sort_V2(list,left,mid-1)
+        quick_sort_V2(list,mid+1,right)
+def partition_V2(list,left,right):
+    mid=list[right]
+    while left<right:
+        while left<right and list[left]<mid:
+            left+=1
+        list[right]=list[left]
+        while left<right and list[right]>mid:
+            right-=1
+        list[left]=list[right]
+    list[right]=mid
+    return left
+quick_sort_V2(list,0,len(list)-1)
 print(list)
