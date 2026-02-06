@@ -19,7 +19,7 @@ def heappush_V0(list,left,right):
     list[0],list[right]=list[right],list[0];
 #heap_sort_V0(list,0,len(list)-1)
 def heap_sort_V1(list,low,high):
-    for i in range((len(list)-1)//2,-1,-1):
+    for i in range((len(list)-2)//2,-1,-1):
         sift_V1(list,i,high)
     #1.先做一个大根堆
     for i in range(len(list)-1,-1,-1):
